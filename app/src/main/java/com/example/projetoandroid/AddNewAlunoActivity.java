@@ -39,6 +39,11 @@ public class AddNewAlunoActivity extends AppCompatActivity {
         mBtnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mNome.getText().toString().isEmpty() && mEmail.getText().toString().isEmpty() && mTelefone.getText().toString().isEmpty()) {
+                    Toast.makeText(AddNewAlunoActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Aluno aluno = new Aluno();
 
                 aluno.setEmail(mEmail.getText().toString());
